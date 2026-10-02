@@ -27,8 +27,13 @@
   h1 { font-size: 1.9rem; line-height: 1.25; margin: 2.25rem 0 .75rem; font-weight: 650; }
   p { margin: 0 0 1rem; }
   .photo { margin: 1.5rem 0 0; }
-  .frame { position: relative; container-type: inline-size; }
-  .photo img { display: block; width: 100%; height: auto; }
+  .frame { position: relative; container-type: inline-size; --poem-size: clamp(.75rem, 2.8cqi, 1.05rem); }
+  /* The photo keeps its own shape unless the poem needs more height (5 lines at 3.2 plus 1.1em above
+     and below = 18.2em); then it grows taller and trims its sides. */
+  .photo img {
+    display: block; width: 100%; height: max(45cqi, calc(var(--poem-size) * 18.2));
+    object-fit: cover;
+  }
   .shade {
     position: absolute; top: 0; bottom: 0; left: 0; display: flex; align-items: flex-start;
     padding: 0 3rem 0 1.25rem; background: linear-gradient(to right, var(--shade) 65%, transparent);
@@ -36,8 +41,8 @@
   .poem {
     margin: 0; color: var(--on-photo); font-style: italic; line-height: 3.2;
     /* Top padding equals the gap between lines (line-height minus 1em, less the half-leading
-       the first line already has). Sized from the photo's width so all four lines fit on it. */
-    padding-top: 1.1em; font-size: min(1.05rem, 3cqi);
+       the first line already has). */
+    padding-top: 1.1em; font-size: var(--poem-size);
   }
   .photo figcaption { margin-top: .35rem; text-align: right; font-size: .75rem; color: var(--muted); }
   h2 {
@@ -72,7 +77,8 @@
         <p class="poem">ironik stepping<br>
         stones raised above the water<br>
         wind waves plunge them clean<br>
-        hopping muddies them again</p>
+        hopping muddies them again<br>
+        but, isn't that the whole point?</p>
       </div>
     </div>
     <figcaption><a href="https://www.flickr.com/photos/pss/1359407958/">Bodies in Motion by Paul Stevenson</a></figcaption>
