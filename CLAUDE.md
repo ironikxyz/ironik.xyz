@@ -27,7 +27,8 @@ Website for ironik.xyz. It presents the timelike repos (`~/projects/timelike/`) 
 
 - Don't rewrite, punctuate, or "improve" the poem.
 - The poem is overlaid in white on the left of a full-column-width stepping-stones photo, over a
-  semi-transparent dark shade (`--on-photo` and `--shade` tokens, the same in both themes). The photo
+  semi-transparent dark shade (`--on-photo` and `--shade` tokens, the same in both themes). The poem is
+  top-aligned with line-height 3.2, and its top padding matches the gap between lines. The photo
   is `stepping-stones.jpg`, a 1280px web copy of `1359407958_9c1cf76fb3_k.jpg`, which stays out of
   git. Its attribution sits right-aligned below it and must stay: "Bodies in Motion by Paul
   Stevenson", linking to https://www.flickr.com/photos/pss/1359407958/.
