@@ -20,9 +20,9 @@ Website for ironik.xyz. It presents the timelike repos (`~/projects/timelike/`) 
   maker of agent tooling.
 - Under the headline is a poem, one line per line break. Keep the wording and lowercase exactly:
 
-  > ironik stepping stones
-  > raised above the water
-  > wind plunges them clean in little waves
+  > ironik stepping
+  > stones raised above the water
+  > wind waves plunge them clean
   > hopping muddies them again
 
 - Don't rewrite, punctuate, or "improve" the poem.
