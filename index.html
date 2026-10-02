@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ironik.xyz</title>
+<meta name="description" content="ironik.xyz — the developer of timelike and other projects.">
+<style>
+  :root {
+    --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6760; --rule: #e4e0d8; --accent: #b4441f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151413; --fg: #ece8e1; --muted: #9a958c; --rule: #2c2a27; --accent: #e8794f; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 17px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 40rem; margin: 0 auto; padding: 4.5rem 1rem 3rem; }
+  .mark { font: 600 1.05rem/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: .02em; }
+  .mark span { color: var(--accent); }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 2.25rem 0 .75rem; font-weight: 650; }
+  p { margin: 0 0 1rem; }
+  .lede { color: var(--muted); }
+  h2 {
+    font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted);
+    margin: 3rem 0 .5rem; font-weight: 600;
+  }
+  ul.projects { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  ul.projects li { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+  .name { font-weight: 650; }
+  .status {
+    font: .75rem/1 ui-monospace, Menlo, Consolas, monospace; color: var(--muted);
+    border: 1px solid var(--rule); border-radius: 999px; padding: .2rem .5rem; margin-left: .4rem;
+    vertical-align: .15rem; white-space: nowrap;
+  }
+  .desc { margin: .35rem 0 0; color: var(--muted); }
+  a { color: var(--accent); text-underline-offset: .18em; }
+  footer { margin-top: 3.5rem; font-size: .9rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">ironik<span>.</span>xyz</div>
+
+  <h1>Tools for AI agents that work in a shell.</h1>
+  <p class="lede">ironik.xyz builds open-source software, starting with timelike: an environment where AI
+  coding agents finish their work without a person stepping in.</p>
+
+  <h2>Projects</h2>
+  <ul class="projects">
+    <li>
+      <span class="name">timelike</span><span class="status">in development</span>
+      <p class="desc">A shell environment for AI coding agents. Every command gives a bounded answer and
+      ends with a clear result. Anything that reaches beyond the environment runs under a grant that the
+      operator sets and caps. MIT licensed, published as it is built.</p>
+    </li>
+  </ul>
+
+  <footer>
+    <a href="https://github.com/ironikxyz">github.com/ironikxyz</a>
+  </footer>
+</main>
+</body>
+</html>
