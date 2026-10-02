@@ -14,7 +14,8 @@ Website for ironik.xyz. It presents the timelike repos (`~/projects/timelike/`) 
 
 ## Voice and copy
 
-- Headline: **"Software explorers of the ungoverned future"**. It replaced an earlier, narrower line,
+- Headline: **"Software explorers of the ungoverned future"**, with a line break after
+  "explorers". It replaced an earlier, narrower line,
   "Tools for AI agents that work in a shell." Don't go back to describing ironik.xyz only as a
   maker of agent tooling.
 - Under the headline is a poem, one line per line break. Keep the wording and lowercase exactly:
