@@ -25,6 +25,9 @@ Website for ironik.xyz. It presents the timelike repos (`~/projects/timelike/`) 
   > hopping muddies them again
 
 - Don't rewrite, punctuate, or "improve" the poem.
+- The hakubun seal (`hakubun.png`) sits at the bottom of the footer, aligned left, linking to
+  https://ironik.xyz. It's a cropped, transparent web copy of the original artwork
+  `Hakubun 2 — archaic, heavy.png`, which stays out of git.
 
 ## Project entries
 
