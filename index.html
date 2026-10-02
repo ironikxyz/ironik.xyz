@@ -25,6 +25,14 @@
   p { margin: 0 0 1rem; }
   .lede { color: var(--muted); }
   .poem { font-style: italic; line-height: 1.75; }
+  .intro { display: flex; gap: 1.5rem; align-items: center; }
+  .intro .poem { flex: 0 0 auto; margin: 0; }
+  .photo { flex: 1 1 0; min-width: 0; margin: 0; }
+  .photo img { display: block; width: 100%; height: auto; }
+  .photo figcaption { margin-top: .35rem; text-align: right; font-size: .75rem; color: var(--muted); }
+  @media (max-width: 36rem) {
+    .intro { flex-direction: column; align-items: stretch; }
+  }
   h2 {
     font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted);
     margin: 3rem 0 .5rem; font-weight: 600;
@@ -49,10 +57,17 @@
   <div class="mark">ironik<span>.</span>xyz</div>
 
   <h1>Software explorers<br>of the ungoverned future</h1>
-  <p class="lede poem">ironik stepping stones<br>
-  raised above the water<br>
-  wind plunges them clean in little waves<br>
-  hopping muddies them again</p>
+  <div class="intro">
+    <p class="lede poem">ironik stepping stones<br>
+    raised above the water<br>
+    wind plunges them clean in little waves<br>
+    hopping muddies them again</p>
+    <figure class="photo">
+      <img src="stepping-stones.jpg" width="800" height="361"
+        alt="A line of people crossing a river on stepping stones, their reflections in the water">
+      <figcaption><a href="https://www.flickr.com/photos/pss/1359407958/">Bodies in Motion by Paul Stevenson</a></figcaption>
+    </figure>
+  </div>
 
   <h2>Projects</h2>
   <ul class="projects">
