@@ -26,10 +26,13 @@ Website for ironik.xyz. It presents the timelike repos (`~/projects/timelike/`) 
   > hopping muddies them again
 
 - Don't rewrite, punctuate, or "improve" the poem.
-- To the right of the poem is the stepping-stones photo (`stepping-stones.jpg`, an 800px web copy of
-  `1359407958_9c1cf76fb3_k.jpg`, which stays out of git). Its attribution sits right-aligned below it
-  and must stay: "Bodies in Motion by Paul Stevenson", linking to
-  https://www.flickr.com/photos/pss/1359407958/. On narrow screens the photo stacks under the poem.
+- The poem is overlaid in white on the left of a full-column-width stepping-stones photo, over a
+  semi-transparent dark shade (`--on-photo` and `--shade` tokens, the same in both themes). The photo
+  is `stepping-stones.jpg`, a 1280px web copy of `1359407958_9c1cf76fb3_k.jpg`, which stays out of
+  git. Its attribution sits right-aligned below it and must stay: "Bodies in Motion by Paul
+  Stevenson", linking to https://www.flickr.com/photos/pss/1359407958/.
+- The favicon (`favicon.ico`, plus `apple-touch-icon.png`) is the "K" cropped square out of the
+  hakubun stamp, red background and all.
 - The hakubun seal (`hakubun.png`) sits at the bottom of the footer, aligned left, linking to
   https://ironik.xyz. It's a cropped, transparent web copy of the original artwork
   `Hakubun 2 — archaic, heavy.png`, which stays out of git.
