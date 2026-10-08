@@ -52,6 +52,11 @@
   ul.projects { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
   ul.projects li { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
   .name { font-weight: 650; }
+  a.name { color: inherit; }
+  a.status { color: var(--muted); text-decoration: none; }
+  a.status:hover { color: var(--accent); border-color: var(--accent); }
+  .updated { margin: .35rem 0 0; font: .8rem/1.4 ui-monospace, Menlo, Consolas, monospace; color: var(--muted); }
+  .updated a { color: inherit; }
   .status {
     font: .75rem/1 ui-monospace, Menlo, Consolas, monospace; color: var(--muted);
     border: 1px solid var(--rule); border-radius: 999px; padding: .2rem .5rem; margin-left: .4rem;
@@ -86,8 +91,10 @@
 
   <h2>Projects</h2>
   <ul class="projects">
-    <li>
-      <span class="name">timelike</span><span class="status">in development</span>
+    <li data-repo="ironikxyz/timelike">
+      <a class="name" href="https://github.com/ironikxyz/timelike">timelike</a><span class="status">in
+      development</span><a class="status tag" hidden></a>
+      <p class="updated" hidden>updated <a><time></time></a></p>
       <p class="desc">A shell environment for AI coding agents. Every command gives a bounded answer and
       ends with a clear result. Anything that reaches beyond the environment runs under a grant that the
       operator sets and caps. MIT licensed, published as it is built.</p>
@@ -100,5 +107,44 @@
       alt="ironik.xyz seal"></a>
   </footer>
 </main>
+<script>
+  // Fill in each project's last commit and newest tag from GitHub's public API. On any failure the
+  // hidden elements stay hidden.
+  (() => {
+    const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+    const units = [['year', 31536e6], ['month', 2592e6], ['week', 6048e5], ['day', 864e5],
+                   ['hour', 36e5], ['minute', 6e4]];
+    const ago = date => {
+      const ms = date - Date.now();
+      for (const [unit, size] of units) if (Math.abs(ms) >= size) return rtf.format(Math.round(ms / size), unit);
+      return 'just now';
+    };
+    const get = url => fetch(url).then(r => r.ok ? r.json() : Promise.reject(r.status));
+
+    for (const li of document.querySelectorAll('[data-repo]')) {
+      const repo = li.dataset.repo, api = `https://api.github.com/repos/${repo}`;
+
+      get(`${api}/commits?per_page=1`).then(([commit]) => {
+        const when = new Date(commit.commit.committer.date);
+        const line = li.querySelector('.updated'), time = line.querySelector('time');
+        line.querySelector('a').href = commit.html_url;
+        time.dateTime = when.toISOString();
+        time.title = when.toLocaleString();
+        time.textContent = ago(when);
+        line.hidden = false;
+      }).catch(() => {});
+
+      get(`${api}/tags?per_page=100`).then(tags => {
+        if (!tags.length) return;
+        const name = tags.map(t => t.name)
+          .sort((a, b) => b.localeCompare(a, undefined, { numeric: true }))[0];
+        const tag = li.querySelector('.tag');
+        tag.href = `https://github.com/${repo}/tree/${encodeURIComponent(name)}`;
+        tag.textContent = name;
+        tag.hidden = false;
+      }).catch(() => {});
+    }
+  })();
+</script>
 </body>
 </html>
