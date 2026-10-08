@@ -45,9 +45,11 @@ Website for ironik.xyz. It presents the timelike repos (`~/projects/timelike/`) 
 - Take each project's description and status from that project's own source of truth, not from
   memory. For timelike, that's `~/projects/timelike/code/README.md` and
   `~/projects/timelike/bridge/governance-context.md`.
-- timelike's blurb is the README's intro and "Why" section (principles included), copied as they
-  stand. Leave out the README's Status section, its What table, and the "see Status" pointer. When
-  the README's intro changes, update the blurb to match.
+- timelike's blurb is the README's intro and "Why" section, copied as they stand, except the
+  principles: on the site they're one plain line, "Seven governing principles: " then the principle
+  names separated by " · ", not bold and without their explanations. Leave out the README's Status
+  section, its What table, and the "see Status" pointer. When the README's intro changes, update the
+  blurb to match.
 - Don't claim features the repo doesn't have yet. Mark status honestly, e.g. "in development".
 - A project `<li>` with `data-repo="owner/name"` gets its last-commit time and newest tag filled in
   by the inline script at the bottom of `index.html`, which calls GitHub's public API from the
