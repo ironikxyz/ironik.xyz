@@ -45,10 +45,15 @@ Website for ironik.xyz. It presents the timelike repos (`~/projects/timelike/`) 
 - Take each project's description and status from that project's own source of truth, not from
   memory. For timelike, that's `~/projects/timelike/code/README.md` and
   `~/projects/timelike/bridge/governance-context.md`.
+- timelike's blurb is the README's intro and "Why" section (principles included), copied as they
+  stand. Leave out the README's Status section, its What table, and the "see Status" pointer. When
+  the README's intro changes, update the blurb to match.
 - Don't claim features the repo doesn't have yet. Mark status honestly, e.g. "in development".
 - A project `<li>` with `data-repo="owner/name"` gets its last-commit time and newest tag filled in
   by the inline script at the bottom of `index.html`, which calls GitHub's public API from the
   browser (no token; 60 requests/hour per visitor IP). The project name links to the repo. If the
   API fails, or the repo has no tags, those bits stay hidden.
+- Tags are managed by `timelike/code` (annotated `v0.<slices built>.<n>` until 1.0), not here. The
+  tag pill shows the highest version, cut to 16 characters with the full tag on hover.
 - The timelike project is mentored (`plan/`, `code/`, `bridge/`). This site is not. Don't run
   mentor or SpecSwarm workflows here.

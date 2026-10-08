@@ -62,7 +62,11 @@
     border: 1px solid var(--rule); border-radius: 999px; padding: .2rem .5rem; margin-left: .4rem;
     vertical-align: .15rem; white-space: nowrap;
   }
-  .desc { margin: .35rem 0 0; color: var(--muted); }
+  .desc { margin: .75rem 0 0; color: var(--muted); }
+  .desc p { margin: 0 0 .75rem; }
+  .desc ul { margin: 0 0 .75rem; padding-left: 1.25rem; }
+  .desc :last-child { margin-bottom: 0; }
+  .desc strong { color: var(--fg); font-weight: 600; }
   a { color: var(--accent); text-underline-offset: .18em; }
   footer { margin-top: 3.5rem; font-size: .9rem; color: var(--muted); }
   .seal { display: block; width: fit-content; margin-top: 2rem; }
@@ -95,9 +99,26 @@
       <a class="name" href="https://github.com/ironikxyz/timelike">timelike</a><span class="status">in
       development</span><a class="status tag" hidden></a>
       <p class="updated" hidden>updated <a><time></time></a></p>
-      <p class="desc">A shell environment for AI coding agents. Every command gives a bounded answer and
-      ends with a clear result. Anything that reaches beyond the environment runs under a grant that the
-      operator sets and caps. MIT licensed, published as it is built.</p>
+      <div class="desc">
+        <!-- From the intro and "Why" of timelike's README.md, without its pointer to Status. -->
+        <p>A containerised shell for AI coding agents: tools built for a user with no terminal, a limited
+        context window and nobody watching, behind one output contract.</p>
+        <p>Coding agents work in a shell made for people. They hand-build pipelines to keep output small,
+        retry commands that don't exist, wait on processes that never return, and stop at anything that
+        needs infrastructure. Then a person steps in to unstick, clean up or bring something up.</p>
+        <p>timelike aims for the agent to finish a task without that help (tests passing, a running app, a
+        reachable deployment), and, when it can't, to say exactly why and who can unblock it.</p>
+        <p>Seven principles govern it:</p>
+        <ul>
+          <li><strong>Unaided completion.</strong></li>
+          <li><strong>Every call concludes</strong>: no hangs, and a verdict first.</li>
+          <li><strong>Found where agents look.</strong></li>
+          <li><strong>Reach only by grant</strong>: credentials stay with Adele, never with the agent.</li>
+          <li><strong>Wrong turns are recoverable.</strong></li>
+          <li><strong>Claims are measured.</strong></li>
+          <li><strong>Harness-agnostic.</strong></li>
+        </ul>
+      </div>
     </li>
   </ul>
 
@@ -140,7 +161,9 @@
           .sort((a, b) => b.localeCompare(a, undefined, { numeric: true }))[0];
         const tag = li.querySelector('.tag');
         tag.href = `https://github.com/${repo}/tree/${encodeURIComponent(name)}`;
-        tag.textContent = name;
+        // Long tags are cut short; the full name shows on hover.
+        tag.textContent = name.length > 16 ? `${name.slice(0, 15)}…` : name;
+        tag.title = name;
         tag.hidden = false;
       }).catch(() => {});
     }
